@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Registrar Nueva Devolución";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Registrar Devolución de Venta</h2>
+        <a href="@Url.Action("Index", "Devolucion")" class="btn btn-outline-secondary">
+            Volver al Listado
+        </a>
+    </div>
+
+    <!-- Contenedor general de alertas (Integrante 3 y 4) -->
+    <div id="alertaFormulario" class="alert d-none"></div>
+
+    <!-- CABECERA DEL FORMULARIO (Integrante 3) -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            1. Datos de la Venta y Motivo
+        </div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="txtIdVenta" class="form-label">ID de Venta:</label>
+                    <div class="input-group">
+                        <input type="number" id="txtIdVenta" class="form-control" min="1" placeholder="Ej. 1" />
+                        <button type="button" id="btnBuscarVenta" class="btn btn-dark" onclick="buscarVenta()">
+                            Buscar Venta
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <label for="txtMotivo" class="form-label">Motivo de la Devolución:</label>
+                    <input type="text" id="txtMotivo" class="form-control" maxlength="255"
+                           placeholder="Describa el motivo de la devolución..." />
+                </div>
+            </div>
+
+            <!-- Tabla informativa de productos originales de la venta -->
+            <div id="seccionProductosVenta" class="mt-4 d-none">
+                <h6>Productos asociados a la venta seleccionada:</h6>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio Unit.</th>
+                            <th>Cant. Vendida</th>
+                            <th>Ya Devuelta</th>
+                            <th>Disponible para Devolver</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyProductosVenta"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DETALLE / CARRITO (Base lista para Integrante 4) -->
+    <div id="seccionDetalleDevolucion" class="card d-none">
+        <div class="card-header bg-secondary text-white">
+            2. Detalle de Devolución
+        </div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end mb-3">
+                <div class="col-md-6">
+                    <label for="cboProducto" class="form-label">Producto:</label>
+                    <select id="cboProducto" class="form-select"></select>
+                </div>
+                <div class="col-md-3">
+                    <label for="txtCantidadDevolver" class="form-label">Cantidad a Devolver:</label>
+                    <input type="number" id="txtCantidadDevolver" class="form-control" min="1" value="1" />
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="btnAgregarProducto" class="btn btn-primary w-100">
+                        + Agregar
+                    </button>
+                </div>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad a Devolver</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyCarrito"></tbody>
+            </table>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <h5>Total Devolución: S/ <span id="lblTotalDevolucion">0.00</span></h5>
+                <button type="button" id="btnConfirmarDevolucion" class="btn btn-success">
+                    Confirmar Devolución
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+      
+        var productosDisponiblesVenta = [];
+
+        function buscarVenta() {
+            var idVenta = parseInt($("#txtIdVenta").val());
+            $("#alertaFormulario").addClass("d-none");
+
+            if (!idVenta || idVenta <= 0) {
+                mostrarAlerta("danger", "Ingrese un identificador de venta válido mayor que cero.");
+                return;
+            }
+
+            $.get('@Url.Action("BuscarProductosVenta", "Devolucion")', { idVenta: idVenta }, function (res) {
+                if (res.exito) {
+                    productosDisponiblesVenta = res.data;
+                    var filas = "";
+                    var opciones = '<option value="">-- Seleccione un producto --</option>';
+
+                    $.each(res.data, function (i, p) {
+                        filas += "<tr>" +
+                            "<td>" + p.nombreProducto + "</td>" +
+                            "<td>S/ " + Number(p.precio).toFixed(2) + "</td>" +
+                            "<td>" + p.cantidadVendida + "</td>" +
+                            "<td>" + p.cantidadDevuelta + "</td>" +
+                            "<td><strong>" + p.cantidadDisponible + "</strong></td>" +
+                            "</tr>";
+
+                        if (p.cantidadDisponible > 0) {
+                            opciones += '<option value="' + p.idProducto + '" data-precio="' + p.precio + '" data-disponible="' + p.cantidadDisponible + '">' +
+                                p.nombreProducto + ' (Disp: ' + p.cantidadDisponible + ')' +
+                                '</option>';
+                        }
+                    });
+
+                    $("#tbodyProductosVenta").html(filas);
+                    $("#cboProducto").html(opciones);
+                    $("#seccionProductosVenta").removeClass("d-none");
+                    $("#seccionDetalleDevolucion").removeClass("d-none");
+                } else {
+                    $("#seccionProductosVenta").addClass("d-none");
+                    $("#seccionDetalleDevolucion").addClass("d-none");
+                    mostrarAlerta("warning", res.mensaje);
+                }
+            });
+        }
+
+        function mostrarAlerta(tipo, mensaje) {
+            $("#alertaFormulario")
+                .removeClass("d-none alert-success alert-danger alert-warning")
+                .addClass("alert-" + tipo)
+                .text(mensaje);
+        }
+    </script>
+}
+

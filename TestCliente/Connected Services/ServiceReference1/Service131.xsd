@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceProductTec" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfProductos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Productos" nillable="true" type="tns:Productos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductos" nillable="true" type="tns:ArrayOfProductos" />
+  <xs:complexType name="Productos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categorias" nillable="true" type="tns:Categorias" />
+      <xs:element minOccurs="0" name="DetalleDevolucion" nillable="true" type="tns:ArrayOfDetalleDevolucion" />
+      <xs:element minOccurs="0" name="DetalleVenta" nillable="true" type="tns:ArrayOfDetalleVenta" />
+      <xs:element minOccurs="0" name="categoria" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="precio" type="xs:decimal" />
+      <xs:element minOccurs="0" name="stock" type="xs:int" />
+      <xs:element minOccurs="0" name="url_imagen" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Productos" nillable="true" type="tns:Productos" />
+  <xs:complexType name="Categorias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Productos" nillable="true" type="tns:ArrayOfProductos" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Categorias" nillable="true" type="tns:Categorias" />
+  <xs:complexType name="ArrayOfDetalleDevolucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleDevolucion" nillable="true" type="tns:DetalleDevolucion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleDevolucion" nillable="true" type="tns:ArrayOfDetalleDevolucion" />
+  <xs:complexType name="DetalleDevolucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Devolucion" nillable="true" type="tns:Devolucion" />
+      <xs:element minOccurs="0" name="Productos" nillable="true" type="tns:Productos" />
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idDevolucion" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="precioVenta" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleDevolucion" nillable="true" type="tns:DetalleDevolucion" />
+  <xs:complexType name="Devolucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetalleDevolucion" nillable="true" type="tns:ArrayOfDetalleDevolucion" />
+      <xs:element minOccurs="0" name="Venta" nillable="true" type="tns:Venta" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idVenta" type="xs:int" />
+      <xs:element minOccurs="0" name="montoTotalDevuelto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="motivoDevolucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoDevolucion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Devolucion" nillable="true" type="tns:Devolucion" />
+  <xs:complexType name="Venta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetalleVenta" nillable="true" type="tns:ArrayOfDetalleVenta" />
+      <xs:element minOccurs="0" name="Devolucion" nillable="true" type="tns:ArrayOfDevolucion" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Venta" nillable="true" type="tns:Venta" />
+  <xs:complexType name="ArrayOfDetalleVenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleVenta" nillable="true" type="tns:DetalleVenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleVenta" nillable="true" type="tns:ArrayOfDetalleVenta" />
+  <xs:complexType name="DetalleVenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Productos" nillable="true" type="tns:Productos" />
+      <xs:element minOccurs="0" name="Venta" nillable="true" type="tns:Venta" />
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="idVenta" type="xs:int" />
+      <xs:element minOccurs="0" name="precio" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleVenta" nillable="true" type="tns:DetalleVenta" />
+  <xs:complexType name="ArrayOfDevolucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Devolucion" nillable="true" type="tns:Devolucion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevolucion" nillable="true" type="tns:ArrayOfDevolucion" />
+  <xs:complexType name="ArrayOfCategorias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Categorias" nillable="true" type="tns:Categorias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategorias" nillable="true" type="tns:ArrayOfCategorias" />
+</xs:schema>

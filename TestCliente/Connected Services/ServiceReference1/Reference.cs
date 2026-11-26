@@ -15,21 +15,42 @@ namespace TestCliente.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Productos", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
     [System.SerializableAttribute()]
-    public partial class Producto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Productos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private TestCliente.ServiceReference1.Categorias CategoriasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
+        private TestCliente.ServiceReference1.DetalleDevolucion[] DetalleDevolucionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PrecioField;
+        private TestCliente.ServiceReference1.DetalleVenta[] DetalleVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int categoriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal precioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int stockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string url_imagenField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -42,40 +63,1237 @@ namespace TestCliente.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public TestCliente.ServiceReference1.Categorias Categorias {
             get {
-                return this.IdField;
+                return this.CategoriasField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((object.ReferenceEquals(this.CategoriasField, value) != true)) {
+                    this.CategoriasField = value;
+                    this.RaisePropertyChanged("Categorias");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
+        public TestCliente.ServiceReference1.DetalleDevolucion[] DetalleDevolucion {
             get {
-                return this.NombreField;
+                return this.DetalleDevolucionField;
             }
             set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
+                if ((object.ReferenceEquals(this.DetalleDevolucionField, value) != true)) {
+                    this.DetalleDevolucionField = value;
+                    this.RaisePropertyChanged("DetalleDevolucion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Precio {
+        public TestCliente.ServiceReference1.DetalleVenta[] DetalleVenta {
             get {
-                return this.PrecioField;
+                return this.DetalleVentaField;
             }
             set {
-                if ((this.PrecioField.Equals(value) != true)) {
-                    this.PrecioField = value;
-                    this.RaisePropertyChanged("Precio");
+                if ((object.ReferenceEquals(this.DetalleVentaField, value) != true)) {
+                    this.DetalleVentaField = value;
+                    this.RaisePropertyChanged("DetalleVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                if ((this.categoriaField.Equals(value) != true)) {
+                    this.categoriaField = value;
+                    this.RaisePropertyChanged("categoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
+                    this.descripcionField = value;
+                    this.RaisePropertyChanged("descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
+                    this.nombreField = value;
+                    this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                if ((this.precioField.Equals(value) != true)) {
+                    this.precioField = value;
+                    this.RaisePropertyChanged("precio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int stock {
+            get {
+                return this.stockField;
+            }
+            set {
+                if ((this.stockField.Equals(value) != true)) {
+                    this.stockField = value;
+                    this.RaisePropertyChanged("stock");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string url_imagen {
+            get {
+                return this.url_imagenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.url_imagenField, value) != true)) {
+                    this.url_imagenField = value;
+                    this.RaisePropertyChanged("url_imagen");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categorias", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
+    [System.SerializableAttribute()]
+    public partial class Categorias : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Productos[] ProductosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Productos[] Productos {
+            get {
+                return this.ProductosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductosField, value) != true)) {
+                    this.ProductosField = value;
+                    this.RaisePropertyChanged("Productos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
+                    this.descripcionField = value;
+                    this.RaisePropertyChanged("descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
+                    this.nombreField = value;
+                    this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleDevolucion", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
+    [System.SerializableAttribute()]
+    public partial class DetalleDevolucion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Devolucion DevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Productos ProductosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idDevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal precioVentaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Devolucion Devolucion {
+            get {
+                return this.DevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DevolucionField, value) != true)) {
+                    this.DevolucionField = value;
+                    this.RaisePropertyChanged("Devolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Productos Productos {
+            get {
+                return this.ProductosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductosField, value) != true)) {
+                    this.ProductosField = value;
+                    this.RaisePropertyChanged("Productos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idDevolucion {
+            get {
+                return this.idDevolucionField;
+            }
+            set {
+                if ((this.idDevolucionField.Equals(value) != true)) {
+                    this.idDevolucionField = value;
+                    this.RaisePropertyChanged("idDevolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                if ((this.idProductoField.Equals(value) != true)) {
+                    this.idProductoField = value;
+                    this.RaisePropertyChanged("idProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal precioVenta {
+            get {
+                return this.precioVentaField;
+            }
+            set {
+                if ((this.precioVentaField.Equals(value) != true)) {
+                    this.precioVentaField = value;
+                    this.RaisePropertyChanged("precioVenta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleVenta", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
+    [System.SerializableAttribute()]
+    public partial class DetalleVenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Productos ProductosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Venta VentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal precioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Productos Productos {
+            get {
+                return this.ProductosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductosField, value) != true)) {
+                    this.ProductosField = value;
+                    this.RaisePropertyChanged("Productos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Venta Venta {
+            get {
+                return this.VentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VentaField, value) != true)) {
+                    this.VentaField = value;
+                    this.RaisePropertyChanged("Venta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                if ((this.idProductoField.Equals(value) != true)) {
+                    this.idProductoField = value;
+                    this.RaisePropertyChanged("idProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idVenta {
+            get {
+                return this.idVentaField;
+            }
+            set {
+                if ((this.idVentaField.Equals(value) != true)) {
+                    this.idVentaField = value;
+                    this.RaisePropertyChanged("idVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                if ((this.precioField.Equals(value) != true)) {
+                    this.precioField = value;
+                    this.RaisePropertyChanged("precio");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Devolucion", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
+    [System.SerializableAttribute()]
+    public partial class Devolucion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.DetalleDevolucion[] DetalleDevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Venta VentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime fechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal montoTotalDevueltoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string motivoDevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoDevolucionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.DetalleDevolucion[] DetalleDevolucion {
+            get {
+                return this.DetalleDevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetalleDevolucionField, value) != true)) {
+                    this.DetalleDevolucionField = value;
+                    this.RaisePropertyChanged("DetalleDevolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Venta Venta {
+            get {
+                return this.VentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VentaField, value) != true)) {
+                    this.VentaField = value;
+                    this.RaisePropertyChanged("Venta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                if ((this.fechaField.Equals(value) != true)) {
+                    this.fechaField = value;
+                    this.RaisePropertyChanged("fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idVenta {
+            get {
+                return this.idVentaField;
+            }
+            set {
+                if ((this.idVentaField.Equals(value) != true)) {
+                    this.idVentaField = value;
+                    this.RaisePropertyChanged("idVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal montoTotalDevuelto {
+            get {
+                return this.montoTotalDevueltoField;
+            }
+            set {
+                if ((this.montoTotalDevueltoField.Equals(value) != true)) {
+                    this.montoTotalDevueltoField = value;
+                    this.RaisePropertyChanged("montoTotalDevuelto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string motivoDevolucion {
+            get {
+                return this.motivoDevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.motivoDevolucionField, value) != true)) {
+                    this.motivoDevolucionField = value;
+                    this.RaisePropertyChanged("motivoDevolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipoDevolucion {
+            get {
+                return this.tipoDevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoDevolucionField, value) != true)) {
+                    this.tipoDevolucionField = value;
+                    this.RaisePropertyChanged("tipoDevolucion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Venta", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec")]
+    [System.SerializableAttribute()]
+    public partial class Venta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.DetalleVenta[] DetalleVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.Devolucion[] DevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime fechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal totalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.DetalleVenta[] DetalleVenta {
+            get {
+                return this.DetalleVentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetalleVentaField, value) != true)) {
+                    this.DetalleVentaField = value;
+                    this.RaisePropertyChanged("DetalleVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.Devolucion[] Devolucion {
+            get {
+                return this.DevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DevolucionField, value) != true)) {
+                    this.DevolucionField = value;
+                    this.RaisePropertyChanged("Devolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                if ((this.fechaField.Equals(value) != true)) {
+                    this.fechaField = value;
+                    this.RaisePropertyChanged("fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal total {
+            get {
+                return this.totalField;
+            }
+            set {
+                if ((this.totalField.Equals(value) != true)) {
+                    this.totalField = value;
+                    this.RaisePropertyChanged("total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DevolucionRequest", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.SerializableAttribute()]
+    public partial class DevolucionRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TestCliente.ServiceReference1.DetalleDevolucionRequest[] detallesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string motivoDevolucionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TestCliente.ServiceReference1.DetalleDevolucionRequest[] detalles {
+            get {
+                return this.detallesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detallesField, value) != true)) {
+                    this.detallesField = value;
+                    this.RaisePropertyChanged("detalles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idVenta {
+            get {
+                return this.idVentaField;
+            }
+            set {
+                if ((this.idVentaField.Equals(value) != true)) {
+                    this.idVentaField = value;
+                    this.RaisePropertyChanged("idVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string motivoDevolucion {
+            get {
+                return this.motivoDevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.motivoDevolucionField, value) != true)) {
+                    this.motivoDevolucionField = value;
+                    this.RaisePropertyChanged("motivoDevolucion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleDevolucionRequest", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.SerializableAttribute()]
+    public partial class DetalleDevolucionRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdProducto {
+            get {
+                return this.IdProductoField;
+            }
+            set {
+                if ((this.IdProductoField.Equals(value) != true)) {
+                    this.IdProductoField = value;
+                    this.RaisePropertyChanged("IdProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DevolucionResponse", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.SerializableAttribute()]
+    public partial class DevolucionResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool exitoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idDevolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string messageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal montoTotalDevueltoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoDevolucionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool exito {
+            get {
+                return this.exitoField;
+            }
+            set {
+                if ((this.exitoField.Equals(value) != true)) {
+                    this.exitoField = value;
+                    this.RaisePropertyChanged("exito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idDevolucion {
+            get {
+                return this.idDevolucionField;
+            }
+            set {
+                if ((this.idDevolucionField.Equals(value) != true)) {
+                    this.idDevolucionField = value;
+                    this.RaisePropertyChanged("idDevolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string message {
+            get {
+                return this.messageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.messageField, value) != true)) {
+                    this.messageField = value;
+                    this.RaisePropertyChanged("message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal montoTotalDevuelto {
+            get {
+                return this.montoTotalDevueltoField;
+            }
+            set {
+                if ((this.montoTotalDevueltoField.Equals(value) != true)) {
+                    this.montoTotalDevueltoField = value;
+                    this.RaisePropertyChanged("montoTotalDevuelto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipoDevolucion {
+            get {
+                return this.tipoDevolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoDevolucionField, value) != true)) {
+                    this.tipoDevolucionField = value;
+                    this.RaisePropertyChanged("tipoDevolucion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleDevolucionResponse", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.SerializableAttribute()]
+    public partial class DetalleDevolucionResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal precioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreProducto {
+            get {
+                return this.nombreProductoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreProductoField, value) != true)) {
+                    this.nombreProductoField = value;
+                    this.RaisePropertyChanged("nombreProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                if ((this.precioField.Equals(value) != true)) {
+                    this.precioField = value;
+                    this.RaisePropertyChanged("precio");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductoVentaResponse", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceProductTec.Models")]
+    [System.SerializableAttribute()]
+    public partial class ProductoVentaResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadDevueltaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadDisponibleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadVendidaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal precioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadDevuelta {
+            get {
+                return this.cantidadDevueltaField;
+            }
+            set {
+                if ((this.cantidadDevueltaField.Equals(value) != true)) {
+                    this.cantidadDevueltaField = value;
+                    this.RaisePropertyChanged("cantidadDevuelta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadDisponible {
+            get {
+                return this.cantidadDisponibleField;
+            }
+            set {
+                if ((this.cantidadDisponibleField.Equals(value) != true)) {
+                    this.cantidadDisponibleField = value;
+                    this.RaisePropertyChanged("cantidadDisponible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadVendida {
+            get {
+                return this.cantidadVendidaField;
+            }
+            set {
+                if ((this.cantidadVendidaField.Equals(value) != true)) {
+                    this.cantidadVendidaField = value;
+                    this.RaisePropertyChanged("cantidadVendida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                if ((this.idProductoField.Equals(value) != true)) {
+                    this.idProductoField = value;
+                    this.RaisePropertyChanged("idProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreProducto {
+            get {
+                return this.nombreProductoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreProductoField, value) != true)) {
+                    this.nombreProductoField = value;
+                    this.RaisePropertyChanged("nombreProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                if ((this.precioField.Equals(value) != true)) {
+                    this.precioField = value;
+                    this.RaisePropertyChanged("precio");
                 }
             }
         }
@@ -94,17 +1312,59 @@ namespace TestCliente.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductos", ReplyAction="http://tempuri.org/IService1/ListarProductosResponse")]
-        TestCliente.ServiceReference1.Producto[] ListarProductos();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductosDB", ReplyAction="http://tempuri.org/IService1/ListarProductosDBResponse")]
+        TestCliente.ServiceReference1.Productos[] ListarProductosDB();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductos", ReplyAction="http://tempuri.org/IService1/ListarProductosResponse")]
-        System.Threading.Tasks.Task<TestCliente.ServiceReference1.Producto[]> ListarProductosAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductosDB", ReplyAction="http://tempuri.org/IService1/ListarProductosDBResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.Productos[]> ListarProductosDBAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerProducto", ReplyAction="http://tempuri.org/IService1/ObtenerProductoResponse")]
-        TestCliente.ServiceReference1.Producto ObtenerProducto(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCategoriasDB", ReplyAction="http://tempuri.org/IService1/ListarCategoriasDBResponse")]
+        TestCliente.ServiceReference1.Categorias[] ListarCategoriasDB();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerProducto", ReplyAction="http://tempuri.org/IService1/ObtenerProductoResponse")]
-        System.Threading.Tasks.Task<TestCliente.ServiceReference1.Producto> ObtenerProductoAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCategoriasDB", ReplyAction="http://tempuri.org/IService1/ListarCategoriasDBResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.Categorias[]> ListarCategoriasDBAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarProducto", ReplyAction="http://tempuri.org/IService1/InsertarProductoResponse")]
+        string InsertarProducto(TestCliente.ServiceReference1.Productos prod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarProducto", ReplyAction="http://tempuri.org/IService1/InsertarProductoResponse")]
+        System.Threading.Tasks.Task<string> InsertarProductoAsync(TestCliente.ServiceReference1.Productos prod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarProducto", ReplyAction="http://tempuri.org/IService1/ActualizarProductoResponse")]
+        string ActualizarProducto(TestCliente.ServiceReference1.Productos prod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarProducto", ReplyAction="http://tempuri.org/IService1/ActualizarProductoResponse")]
+        System.Threading.Tasks.Task<string> ActualizarProductoAsync(TestCliente.ServiceReference1.Productos prod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarProducto", ReplyAction="http://tempuri.org/IService1/EliminarProductoResponse")]
+        string EliminarProducto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarProducto", ReplyAction="http://tempuri.org/IService1/EliminarProductoResponse")]
+        System.Threading.Tasks.Task<string> EliminarProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarDevolucionVenta", ReplyAction="http://tempuri.org/IService1/RegistrarDevolucionVentaResponse")]
+        TestCliente.ServiceReference1.DevolucionResponse RegistrarDevolucionVenta(TestCliente.ServiceReference1.DevolucionRequest devolucion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarDevolucionVenta", ReplyAction="http://tempuri.org/IService1/RegistrarDevolucionVentaResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.DevolucionResponse> RegistrarDevolucionVentaAsync(TestCliente.ServiceReference1.DevolucionRequest devolucion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarDevoluciones", ReplyAction="http://tempuri.org/IService1/ListarDevolucionesResponse")]
+        TestCliente.ServiceReference1.Devolucion[] ListarDevoluciones();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarDevoluciones", ReplyAction="http://tempuri.org/IService1/ListarDevolucionesResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.Devolucion[]> ListarDevolucionesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerDevolucionDetalle", ReplyAction="http://tempuri.org/IService1/VerDevolucionDetalleResponse")]
+        TestCliente.ServiceReference1.DetalleDevolucionResponse[] VerDevolucionDetalle(int idDevolucion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerDevolucionDetalle", ReplyAction="http://tempuri.org/IService1/VerDevolucionDetalleResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.DetalleDevolucionResponse[]> VerDevolucionDetalleAsync(int idDevolucion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductosVenta", ReplyAction="http://tempuri.org/IService1/ListarProductosVentaResponse")]
+        TestCliente.ServiceReference1.ProductoVentaResponse[] ListarProductosVenta(int idVenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProductosVenta", ReplyAction="http://tempuri.org/IService1/ListarProductosVentaResponse")]
+        System.Threading.Tasks.Task<TestCliente.ServiceReference1.ProductoVentaResponse[]> ListarProductosVentaAsync(int idVenta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -134,20 +1394,76 @@ namespace TestCliente.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public TestCliente.ServiceReference1.Producto[] ListarProductos() {
-            return base.Channel.ListarProductos();
+        public TestCliente.ServiceReference1.Productos[] ListarProductosDB() {
+            return base.Channel.ListarProductosDB();
         }
         
-        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.Producto[]> ListarProductosAsync() {
-            return base.Channel.ListarProductosAsync();
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.Productos[]> ListarProductosDBAsync() {
+            return base.Channel.ListarProductosDBAsync();
         }
         
-        public TestCliente.ServiceReference1.Producto ObtenerProducto(int id) {
-            return base.Channel.ObtenerProducto(id);
+        public TestCliente.ServiceReference1.Categorias[] ListarCategoriasDB() {
+            return base.Channel.ListarCategoriasDB();
         }
         
-        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.Producto> ObtenerProductoAsync(int id) {
-            return base.Channel.ObtenerProductoAsync(id);
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.Categorias[]> ListarCategoriasDBAsync() {
+            return base.Channel.ListarCategoriasDBAsync();
+        }
+        
+        public string InsertarProducto(TestCliente.ServiceReference1.Productos prod) {
+            return base.Channel.InsertarProducto(prod);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertarProductoAsync(TestCliente.ServiceReference1.Productos prod) {
+            return base.Channel.InsertarProductoAsync(prod);
+        }
+        
+        public string ActualizarProducto(TestCliente.ServiceReference1.Productos prod) {
+            return base.Channel.ActualizarProducto(prod);
+        }
+        
+        public System.Threading.Tasks.Task<string> ActualizarProductoAsync(TestCliente.ServiceReference1.Productos prod) {
+            return base.Channel.ActualizarProductoAsync(prod);
+        }
+        
+        public string EliminarProducto(int id) {
+            return base.Channel.EliminarProducto(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> EliminarProductoAsync(int id) {
+            return base.Channel.EliminarProductoAsync(id);
+        }
+        
+        public TestCliente.ServiceReference1.DevolucionResponse RegistrarDevolucionVenta(TestCliente.ServiceReference1.DevolucionRequest devolucion) {
+            return base.Channel.RegistrarDevolucionVenta(devolucion);
+        }
+        
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.DevolucionResponse> RegistrarDevolucionVentaAsync(TestCliente.ServiceReference1.DevolucionRequest devolucion) {
+            return base.Channel.RegistrarDevolucionVentaAsync(devolucion);
+        }
+        
+        public TestCliente.ServiceReference1.Devolucion[] ListarDevoluciones() {
+            return base.Channel.ListarDevoluciones();
+        }
+        
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.Devolucion[]> ListarDevolucionesAsync() {
+            return base.Channel.ListarDevolucionesAsync();
+        }
+        
+        public TestCliente.ServiceReference1.DetalleDevolucionResponse[] VerDevolucionDetalle(int idDevolucion) {
+            return base.Channel.VerDevolucionDetalle(idDevolucion);
+        }
+        
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.DetalleDevolucionResponse[]> VerDevolucionDetalleAsync(int idDevolucion) {
+            return base.Channel.VerDevolucionDetalleAsync(idDevolucion);
+        }
+        
+        public TestCliente.ServiceReference1.ProductoVentaResponse[] ListarProductosVenta(int idVenta) {
+            return base.Channel.ListarProductosVenta(idVenta);
+        }
+        
+        public System.Threading.Tasks.Task<TestCliente.ServiceReference1.ProductoVentaResponse[]> ListarProductosVentaAsync(int idVenta) {
+            return base.Channel.ListarProductosVentaAsync(idVenta);
         }
     }
 }

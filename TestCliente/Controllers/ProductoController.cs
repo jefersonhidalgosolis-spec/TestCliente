@@ -14,7 +14,7 @@ namespace TestCliente.Controllers
         {
             Service1Client cliente = new Service1Client();
 
-            var productos = cliente.ListarProductos();
+            var productos = cliente.ListarProductosDB();
 
             //return View(productos);
             return Json(productos, JsonRequestBehavior.AllowGet);

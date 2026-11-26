@@ -1,0 +1,123 @@
+﻿@model IEnumerable<TestCliente.ServiceReference1.Devolucion>
+
+@{
+    ViewBag.Title = "Listado de Devoluciones";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Devoluciones Registradas</h2>
+        <a href="@Url.Action("Crear", "Devolucion")" class="btn btn-primary">
+            + Registrar Nueva Devolución
+        </a>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID Devolución</th>
+                <th>ID Venta</th>
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Tipo</th>
+                <th>Monto Devuelto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>#@item.idVenta</td>
+                        <td>@item.fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.motivoDevolucion</td>
+                        <td>@item.tipoDevolucion</td>
+                        <td>S/ @item.montoTotalDevuelto.ToString("0.00")</td>
+                        <td>
+                            <button type="button" class="btn btn-info btn-sm text-white"
+                                    onclick="verDetalle(@item.id)">
+                                Ver Detalle
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No hay devoluciones registradas.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal para VerDevolucionDetalle -->
+<div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detalle de Devolución #<span id="lblIdDevolucion"></span></h5>
+                <button type="button" class="btn-close" onclick="$('#modalDetalle').modal('hide')"></button>
+            </div>
+            <div class="modal-body">
+                <div id="alertaDetalle" class="alert alert-danger d-none"></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID Detalle</th>
+                            <th>Producto</th>
+                            <th>Cantidad Devuelta</th>
+                            <th>Precio Unitario</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDetalle"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="$('#modalDetalle').modal('hide')">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+ 
+        function verDetalle(idDevolucion) {
+            $("#lblIdDevolucion").text(idDevolucion);
+            $("#tbodyDetalle").html('<tr><td colspan="5" class="text-center">Cargando...</td></tr>');
+            $("#alertaDetalle").addClass("d-none");
+            $("#modalDetalle").modal("show");
+
+            $.get('@Url.Action("ObtenerDetalle", "Devolucion")', { idDevolucion: idDevolucion }, function (res) {
+                if (res.exito) {
+                    var filas = "";
+                    $.each(res.data, function (i, item) {
+                        var subtotal = (item.cantidad * item.precio).toFixed(2);
+                        filas += "<tr>" +
+                            "<td>" + item.id + "</td>" +
+                            "<td>" + item.nombreProducto + "</td>" +
+                            "<td>" + item.cantidad + "</td>" +
+                            "<td>S/ " + Number(item.precio).toFixed(2) + "</td>" +
+                            "<td>S/ " + subtotal + "</td>" +
+                            "</tr>";
+                    });
+                    $("#tbodyDetalle").html(filas || '<tr><td colspan="5" class="text-center">Sin productos en el detalle.</td></tr>');
+                } else {
+                    $("#tbodyDetalle").empty();
+                    $("#alertaDetalle").text(res.mensaje).removeClass("d-none");
+                }
+            });
+        }
+    </script>
+}
